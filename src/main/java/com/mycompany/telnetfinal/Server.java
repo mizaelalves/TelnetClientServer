@@ -60,8 +60,20 @@ class AcceptClient extends Thread {
     DataInputStream in;
     DataOutputStream out = null;
 
+    private String Command = "";
+    private String Password = "";
+    private String LoginName = "";
+    private String line = "";
+    private String chat_r = "";
+    private String chat_s = "";
+    private String Permission = "Not_Allowed";
+    private String login = "";
+    private String LoginInfo = new String("");
+
+    private LocalTime dTime = LocalTime.now();
+
     AcceptClient(Socket Soc) throws IOException {
-        LocalTime dTime = LocalTime.now();
+
         ClientSocket = Soc;
         DataOutputStream out = new DataOutputStream(ClientSocket.getOutputStream());
         out.writeUTF("ok");
@@ -90,12 +102,6 @@ class AcceptClient extends Thread {
 
         try {
 
-            String Command = "";
-            String Password = "";
-            String LoginName = "";
-            String line = "";
-            String chat_r = "";
-            String chat_s = "";
             BufferedReader input = null;
             LocalTime dTime = LocalTime.now();
 
@@ -104,11 +110,9 @@ class AcceptClient extends Thread {
             OutputStream os = new FileOutputStream("log.txt", true);
             OutputStreamWriter osw = new OutputStreamWriter(os);
             BufferedWriter bw = new BufferedWriter(osw);
-
             // client
             DataOutputStream out = new DataOutputStream(ClientSocket.getOutputStream());
             input = new BufferedReader(new InputStreamReader(System.in));
-            // System.out.println("Welcome");
             try {
                 while (true) {
                     line = in.readUTF();
@@ -149,8 +153,6 @@ class AcceptClient extends Thread {
                     // --------------------------------------------------------------------------------------------------------
                     else if (line.equals("telnet")) {
 
-                        String Permission = "Not_Allowed";
-                        String login = "";
                         login = in.readUTF();
                         while (login.equals("0")) {
                             System.out.println("Iniciando cadastro");
@@ -170,8 +172,6 @@ class AcceptClient extends Thread {
                             System.out.println(LoginName);
                             BufferedReader brFin = new BufferedReader(new FileReader("Passwords.txt"));
 
-                            String LoginInfo = new String("");
-
                             while ((LoginInfo = (brFin).readLine()) != null) {
 
                                 StringTokenizer st = new StringTokenizer(LoginInfo);
@@ -182,6 +182,7 @@ class AcceptClient extends Thread {
                                     System.out.println(Permission);
                                     bw.append(Permission + "\n");
                                     out.writeUTF(Permission);
+                                    bw.flush();
                                     // break OUTER;
                                 }
 

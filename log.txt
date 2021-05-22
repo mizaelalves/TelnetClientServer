@@ -724,3 +724,62 @@ Conexão fechada em :(TIME):	22:23:11
 (host)> Servidor iniciado na porta: 4000 :(TIME)>> 18:0:59
 (host)> Esperando pelo cliente ...
 (host)> Cliente aceito :(TIME)>> 18:1:15
+
+(host)> Servidor iniciado na porta: 5555 :(TIME)>> 17:5:37
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 17:7:8
+
+(host)> Servidor iniciado na porta: 5000 :(TIME)>> 17:32:20
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 17:32:40
+
+
+ O volume na unidade C n�o tem nome.
+ O N�mero de S�rie do Volume � EE90-E395
+
+ Pasta de C:\Users\fenix\Documents\GitHub\TelnetFinal
+
+21/05/2021  18:34    <DIR>          .
+21/05/2021  18:34    <DIR>          ..
+20/05/2021  22:50             1.770 .classpath
+20/05/2021  22:50               835 .project
+20/05/2021  22:50    <DIR>          .settings
+20/05/2021  22:50               416 a.out
+22/05/2021  17:32            21.427 log.txt
+22/05/2021  17:33                13 Passwords.txt
+20/05/2021  22:50               664 pom.xml
+20/05/2021  22:50    <DIR>          src
+21/05/2021  17:55    <DIR>          target
+               6 arquivo(s)         25.125 bytes
+               5 pasta(s)   70.538.186.752 bytes dispon�veis
+
+
+ALLOWED
+(host)> conectado a partir de um host remoto :edith
+Process[pid=20572, exitValue=0]
+Comando inválido digite help
+dir comando recebido!
+
+
+
+Disparando google.com [142.250.78.206] com 32 bytes de dados:
+Resposta de 142.250.78.206: bytes=32 tempo=66ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=68ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=65ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=65ms TTL=115
+
+Estat�sticas do Ping para 142.250.78.206:
+    Pacotes: Enviados = 4, Recebidos = 4, Perdidos = 0 (0% de
+             perda),
+Aproximar um n�mero redondo de vezes em milissegundos:
+    M�nimo = 65ms, M�ximo = 68ms, M�dia = 66msProcess[pid=21440, exitValue=0]
+Comando inválido digite help
+ping google.com comando recebido!
+edith desconectado!
+
+saindo
+Conexão fechada em :(TIME):	17:32:40
+
+(host)> Cliente aceito :(TIME)>> 17:36:25
+
+(host)> Cliente aceito :(TIME)>> 17:36:38
