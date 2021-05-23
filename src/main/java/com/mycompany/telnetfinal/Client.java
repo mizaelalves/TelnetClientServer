@@ -2,31 +2,42 @@ package com.mycompany.telnetfinal;
 
 import java.net.*;
 import java.io.*;
-import java.util.*;
 import java.time.LocalTime;
 
 class Client {
-	public static void main(String args[]) throws UnknownHostException, IOException {
-		int port;
-		String end;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Digite o endereço: ");
-		end = sc.nextLine();
-		System.out.println("Digite a porta: ");
-		port = sc.nextInt();
+	private int port;
+	private String end;
 
+	public Client(){
+		
+	}
+
+	public int getPort() {
+		return port;
+	}
+	public void setPort(int port) {
+		this.port = port;
+	}
+
+	public String getEnd() {
+		return end;
+	}
+	public void setEnd(String end) {
+		this.end = end;
+	}
+	
+
+	public void RunClient() throws IOException{
 		System.out.println("Esperando comunicação com o servidor");
+		Socket soc = new Socket(end, port);	
 
-		Socket soc = new Socket(end, port);
-
-		LocalTime dTime = LocalTime.now();
-		DataInputStream result = null;
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		DataOutputStream out = new DataOutputStream(soc.getOutputStream()); // sends output to the socket
 		DataInputStream in = new DataInputStream(new BufferedInputStream(soc.getInputStream())); // takes input from
-																									// server
+		LocalTime dTime = LocalTime.now();
+		DataInputStream result = null;
 
-		System.out.println("Requisitando conexão com o servidor :(TIME)>>" + dTime.getHour() + ":" + dTime.getMinute());
+		System.out.println("Requisitando conexão com o servidor "+ this.getEnd()+":"+this.getPort()+" :(TIME)>>" + dTime.getHour() + ":" + dTime.getMinute());
 
 		try {
 			String check = "";
@@ -172,7 +183,6 @@ class Client {
 						input.close();
 						out.close();
 						soc.close();
-						sc.close();
 						in.close();
 						System.out.println("conexão fechada em :(TIME)>>" + dTime.getHour() + ":" + dTime.getMinute());
 					} catch (IOException i) {

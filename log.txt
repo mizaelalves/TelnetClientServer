@@ -783,3 +783,182 @@ Conexão fechada em :(TIME):	17:32:40
 (host)> Cliente aceito :(TIME)>> 17:36:25
 
 (host)> Cliente aceito :(TIME)>> 17:36:38
+
+(host)> Servidor iniciado na porta: 5000 :(TIME)>> 18:50:48
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 18:51:52
+
+
+
+ALLOWED
+
+
+
+Disparando google.com [142.250.78.206] com 32 bytes de dados:
+Resposta de 142.250.78.206: bytes=32 tempo=66ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=110ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=97ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=64ms TTL=115
+
+Estat�sticas do Ping para 142.250.78.206:
+    Pacotes: Enviados = 4, Recebidos = 4, Perdidos = 0 (0% de
+             perda),
+Aproximar um n�mero redondo de vezes em milissegundos:
+    M�nimo = 64ms, M�ximo = 110ms, M�dia = 84ms(host)> conectado a partir de um host remoto :0
+Process[pid=21036, exitValue=0]
+Comando inválido digite help
+ping google.com comando recebido!
+0 desconectado!
+
+saindo
+Conexão fechada em :(TIME):	18:51:52
+
+(host)> Cliente aceito :(TIME)>> 19:24:45
+java.io.EOFException
+Conexão fechada em :(TIME):	19:24:45
+
+(host)> Cliente aceito :(TIME)>> 19:24:45
+java.io.EOFException
+Conexão fechada em :(TIME):	19:24:45
+
+(host)> Cliente aceito :(TIME)>> 19:24:48
+java.io.EOFException
+Conexão fechada em :(TIME):	19:24:48
+
+(host)> Cliente aceito :(TIME)>> 19:24:48
+java.net.SocketException: Software caused connection abort: recv failed
+Conexão fechada em :(TIME):	19:24:48
+
+(host)> Cliente aceito :(TIME)>> 21:27:18
+java.io.EOFException
+Conexão fechada em :(TIME):	21:27:18
+
+(host)> Cliente aceito :(TIME)>> 21:32:33
+java.io.EOFException
+Conexão fechada em :(TIME):	21:32:33
+
+(host)> Cliente aceito :(TIME)>> 21:32:36
+java.io.EOFException
+Conexão fechada em :(TIME):	21:32:36
+
+(host)> Cliente aceito :(TIME)>> 21:32:43
+java.io.EOFException
+Conexão fechada em :(TIME):	21:32:43
+
+(host)> Cliente aceito :(TIME)>> 21:32:43
+java.net.SocketException: Software caused connection abort: recv failed
+Conexão fechada em :(TIME):	21:32:43
+
+(host)> Cliente aceito :(TIME)>> 21:32:45
+java.io.EOFException
+Conexão fechada em :(TIME):	21:32:45
+
+(host)> Cliente aceito :(TIME)>> 21:32:51
+java.io.EOFException
+Conexão fechada em :(TIME):	21:32:51
+
+(host)> Cliente aceito :(TIME)>> 21:32:52
+java.net.SocketException: Software caused connection abort: recv failed
+Conexão fechada em :(TIME):	21:32:52
+
+(host)> Cliente aceito :(TIME)>> 21:32:57
+java.io.EOFException
+Conexão fechada em :(TIME):	21:32:57
+
+(host)> Cliente aceito :(TIME)>> 21:32:57
+java.net.SocketException: Software caused connection abort: recv failed
+Conexão fechada em :(TIME):	21:32:57
+
+(host)> Cliente aceito :(TIME)>> 21:33:6
+java.io.EOFException
+Conexão fechada em :(TIME):	21:33:6
+
+(host)> Cliente aceito :(TIME)>> 21:33:6
+java.io.EOFException
+Conexão fechada em :(TIME):	21:33:6
+
+(host)> Cliente aceito :(TIME)>> 21:33:7
+java.io.EOFException
+Conexão fechada em :(TIME):	21:33:7
+
+(host)> Cliente aceito :(TIME)>> 21:33:7
+java.io.EOFException
+Conexão fechada em :(TIME):	21:33:7
+
+(host)> Cliente aceito :(TIME)>> 21:33:8
+java.io.EOFException
+Conexão fechada em :(TIME):	21:33:8
+
+(host)> Cliente aceito :(TIME)>> 21:33:8
+java.net.SocketException: Software caused connection abort: recv failed
+Conexão fechada em :(TIME):	21:33:8
+
+(host)> Cliente aceito :(TIME)>> 21:33:9
+java.io.EOFException
+Conexão fechada em :(TIME):	21:33:9
+
+(host)> Cliente aceito :(TIME)>> 21:33:10
+java.net.SocketException: Software caused connection abort: recv failed
+Conexão fechada em :(TIME):	21:33:10
+
+(host)> Cliente aceito :(TIME)>> 23:6:39
+
+(host)> Cliente aceito :(TIME)>> 23:6:39
+java.io.EOFException
+Conexão fechada em :(TIME):	23:6:39
+java.io.EOFException
+Conexão fechada em :(TIME):	23:6:39
+
+(host)> Servidor iniciado na porta: 5000 :(TIME)>> 2:25:25
+(host)> Esperando pelo cliente ...
+(host)> Servidor iniciado na porta: 5000 :(TIME)>> 2:44:44
+(host)> Esperando pelo cliente ...
+(host)> Servidor iniciado na porta: 5000 :(TIME)>> 2:47:17
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 2:47:44
+
+ALLOWED
+(host)> conectado a partir de um host remoto :0
+
+
+ O volume na unidade C n�o tem nome.
+ O N�mero de S�rie do Volume � EE90-E395
+
+ Pasta de C:\Users\fenix\Documents\GitHub\TelnetFinal - Copia
+
+23/05/2021  01:37    <DIR>          .
+23/05/2021  01:37    <DIR>          ..
+20/05/2021  22:50             1.770 .classpath
+20/05/2021  22:50               835 .project
+23/05/2021  01:37    <DIR>          .settings
+22/05/2021  23:31               416 a.out
+23/05/2021  02:47            27.206 log.txt
+22/05/2021  17:33                13 Passwords.txt
+20/05/2021  22:50               664 pom.xml
+22/05/2021  18:33                86 README.md
+23/05/2021  01:37    <DIR>          src
+23/05/2021  02:04    <DIR>          target
+               7 arquivo(s)         30.990 bytes
+               5 pasta(s)   71.178.612.736 bytes dispon�veisProcess[pid=14976, exitValue=0]
+Comando inválido digite help
+dir comando recebido!
+
+
+
+Disparando google.com [142.250.78.206] com 32 bytes de dados:
+Resposta de 142.250.78.206: bytes=32 tempo=65ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=73ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=64ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=64ms TTL=115
+
+Estat�sticas do Ping para 142.250.78.206:
+    Pacotes: Enviados = 4, Recebidos = 4, Perdidos = 0 (0% de
+             perda),
+Aproximar um n�mero redondo de vezes em milissegundos:
+    M�nimo = 64ms, M�ximo = 73ms, M�dia = 66msProcess[pid=22364, exitValue=0]
+Comando inválido digite help
+ping google.com comando recebido!
+0 desconectado!
+
+saindo
+Conexão fechada em :(TIME):	2:47:44
