@@ -962,3 +962,68 @@ ping google.com comando recebido!
 
 saindo
 Conexão fechada em :(TIME):	2:47:44
+
+(host)> Servidor iniciado na porta: 5000 :(TIME)>> 2:58:18
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 2:58:32
+
+ALLOWED
+(host)> conectado a partir de um host remoto :0
+
+
+
+Disparando google.com [142.250.218.110] com 32 bytes de dados:
+Resposta de 142.250.218.110: bytes=32 tempo=71ms TTL=115
+Resposta de 142.250.218.110: bytes=32 tempo=65ms TTL=115
+Resposta de 142.250.218.110: bytes=32 tempo=65ms TTL=115
+Resposta de 142.250.218.110: bytes=32 tempo=71ms TTL=115
+
+Estat�sticas do Ping para 142.250.218.110:
+    Pacotes: Enviados = 4, Recebidos = 4, Perdidos = 0 (0% de
+             perda),
+Aproximar um n�mero redondo de vezes em milissegundos:
+    M�nimo = 65ms, M�ximo = 71ms, M�dia = 68msProcess[pid=16636, exitValue=0]
+java.net.SocketException: Connection reset
+Conexão fechada em :(TIME):	2:58:32
+
+(host)> Servidor iniciado na porta: 5000 :(TIME)>> 3:1:12
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 3:1:22
+
+ALLOWED
+(host)> conectado a partir de um host remoto :0
+
+
+
+Disparando google.com [142.250.218.110] com 32 bytes de dados:
+Resposta de 142.250.218.110: bytes=32 tempo=71ms TTL=115
+Resposta de 142.250.218.110: bytes=32 tempo=64ms TTL=115
+Resposta de 142.250.218.110: bytes=32 tempo=65ms TTL=115
+Resposta de 142.250.218.110: bytes=32 tempo=64ms TTL=115
+
+Estat�sticas do Ping para 142.250.218.110:
+    Pacotes: Enviados = 4, Recebidos = 4, Perdidos = 0 (0% de
+             perda),
+Aproximar um n�mero redondo de vezes em milissegundos:
+    M�nimo = 64ms, M�ximo = 71ms, M�dia = 66msProcess[pid=22176, exitValue=0]
+
+(host)> Servidor iniciado na porta: 5000 :(TIME)>> 3:2:35
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 3:2:47
+
+ALLOWED
+(host)> conectado a partir de um host remoto :0
+
+
+
+Disparando google.com [142.250.218.110] com 32 bytes de dados:
+Resposta de 142.250.218.110: bytes=32 tempo=125ms TTL=115
+Resposta de 142.250.218.110: bytes=32 tempo=65ms TTL=115
+Resposta de 142.250.218.110: bytes=32 tempo=66ms TTL=115
+Resposta de 142.250.218.110: bytes=32 tempo=97ms TTL=115
+
+Estat�sticas do Ping para 142.250.218.110:
+    Pacotes: Enviados = 4, Recebidos = 4, Perdidos = 0 (0% de
+             perda),
+Aproximar um n�mero redondo de vezes em milissegundos:
+    M�nimo = 65ms, M�ximo = 125ms, M�dia = 88msProcess[pid=7528, exitValue=0]

@@ -2,6 +2,7 @@ package com.mycompany.telnetfinal;
 
 import java.io.IOException;
 import java.util.*;
+
 public class Main {
     public static void main(String args[]) throws IOException {
         Scanner sc = new Scanner(System.in);
@@ -33,10 +34,6 @@ public class Main {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            
         }
-        
-
-        
     }
 }

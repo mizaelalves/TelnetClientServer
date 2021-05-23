@@ -35,6 +35,9 @@ class Server {
         BufferedWriter bw = new BufferedWriter(osw);
 
         bw.newLine();
+        bw.newLine();
+        bw.append(dTime.getHour()+ ":" + dTime.getMinute() + ":" + dTime.getSecond());
+        
         System.out.println("(host)> Servidor iniciado na porta: " + this.getPort() + " :(TIME)>> " + dTime.getHour()
                 + ":" + dTime.getMinute() + ":" + dTime.getSecond());
         bw.append("(host)> Servidor iniciado na porta: " + this.getPort() + " :(TIME)>> " + dTime.getHour() + ":"
@@ -189,6 +192,7 @@ class AcceptClient extends Thread {
                                 StringTokenizer st = new StringTokenizer(LoginInfo);
                                 if (LoginName.equals(st.nextToken()) && Password.equals(st.nextToken())) {
                                     System.out.println("iniciado");
+                                    bw.append("iniciado");
                                     // out.writeUTF("ALLOWED");
                                     Permission = "ALLOWED";
                                     System.out.println(Permission);
@@ -203,7 +207,7 @@ class AcceptClient extends Thread {
                             if (Permission == "ALLOWED") {
                                 System.out.println("(host)> conectado a partir de um host remoto :" + LoginName);
                                 bw.append("(host)> conectado a partir de um host remoto :" + LoginName);
-                                bw.newLine();
+                               
                                 bw.flush();
                                 while (true) {
                                     try {
@@ -236,10 +240,11 @@ class AcceptClient extends Thread {
 
                                                 process = processBuilder.start();
                                                 printResults(process);
-                                                System.out.println(process);
+                                                //System.out.println(process);
                                                 bw.append("" + process);
                                                 bw.newLine();
                                                 bw.flush();
+                                                break;
                                             }
                                         }
 
@@ -332,9 +337,10 @@ class AcceptClient extends Thread {
             String result = "";
             while ((line = reader.readLine()) != null) {
                 result = result + "\r\n" + line;
-                System.out.println(result);
-
             }
+
+            System.out.println(result);
+
             bw.newLine();
             bw.append(result);
             bw.flush();
