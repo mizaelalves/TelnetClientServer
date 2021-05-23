@@ -1027,3 +1027,111 @@ Estat�sticas do Ping para 142.250.218.110:
              perda),
 Aproximar um n�mero redondo de vezes em milissegundos:
     M�nimo = 65ms, M�ximo = 125ms, M�dia = 88msProcess[pid=7528, exitValue=0]
+
+
+18:35:57(host)> Servidor iniciado na porta: 4000 :(TIME)>> 18:35:57
+(host)> Esperando pelo cliente ...
+
+18:37:8(host)> Servidor iniciado na porta: 5000 :(TIME)>> 18:37:8
+(host)> Esperando pelo cliente ...
+
+18:48:36(host)> Servidor iniciado na porta: 5000 :(TIME)>> 18:48:36
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 18:49:32
+
+Iniciando cadastroEsperando senhaUsuario: pooClient: poo
+iniciadoALLOWED
+(host)> conectado a partir de um host remoto :poo
+
+ O volume na unidade C n�o tem nome.
+ O N�mero de S�rie do Volume � EE90-E395
+
+ Pasta de C:\Users\fenix\Documents\GitHub\TelnetFinal - Copia
+
+23/05/2021  01:37    <DIR>          .
+23/05/2021  01:37    <DIR>          ..
+20/05/2021  22:50             1.770 .classpath
+20/05/2021  22:50               835 .project
+23/05/2021  01:37    <DIR>          .settings
+22/05/2021  23:31               416 a.out
+23/05/2021  18:49            31.636 log.txt
+22/05/2021  17:33                13 Passwords.txt
+20/05/2021  22:50               664 pom.xml
+22/05/2021  18:33                86 README.md
+23/05/2021  01:37    <DIR>          src
+23/05/2021  02:04    <DIR>          target
+               7 arquivo(s)         35.420 bytes
+               5 pasta(s)   71.098.871.808 bytes dispon�veisProcess[pid=2056, exitValue=0]
+java.net.SocketException: Connection reset
+Conexão fechada em :(TIME):	18:49:32
+
+(host)> Cliente aceito :(TIME)>> 18:53:46
+
+iniciadoALLOWED
+(host)> conectado a partir de um host remoto :poo
+
+ O volume na unidade C n�o tem nome.
+ O N�mero de S�rie do Volume � EE90-E395
+
+ Pasta de C:\Users\fenix\Documents\GitHub\TelnetFinal - Copia
+
+23/05/2021  01:37    <DIR>          .
+23/05/2021  01:37    <DIR>          ..
+20/05/2021  22:50             1.770 .classpath
+20/05/2021  22:50               835 .project
+23/05/2021  01:37    <DIR>          .settings
+22/05/2021  23:31               416 a.out
+23/05/2021  18:53            32.728 log.txt
+23/05/2021  18:50                22 Passwords.txt
+20/05/2021  22:50               664 pom.xml
+22/05/2021  18:33                86 README.md
+23/05/2021  01:37    <DIR>          src
+23/05/2021  02:04    <DIR>          target
+               7 arquivo(s)         36.521 bytes
+               5 pasta(s)   71.097.233.408 bytes dispon�veisProcess[pid=15344, exitValue=0]
+java.net.SocketException: Connection reset
+Conexão fechada em :(TIME):	18:53:46
+
+(host)> Cliente aceito :(TIME)>> 18:54:42
+
+iniciadoALLOWED
+(host)> conectado a partir de um host remoto :poo
+
+fenixProcess[pid=10188, exitValue=0]
+
+
+18:56:52(host)> Servidor iniciado na porta: 5000 :(TIME)>> 18:56:52
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 18:57:22
+
+iniciadoALLOWED
+(host)> conectado a partir de um host remoto :poo
+
+
+Disparando google.com [142.250.78.206] com 32 bytes de dados:
+Esgotado o tempo limite do pedido.
+Esgotado o tempo limite do pedido.
+Resposta de 142.250.78.206: bytes=32 tempo=942ms TTL=115
+Resposta de 142.250.78.206: bytes=32 tempo=526ms TTL=115
+
+Estat�sticas do Ping para 142.250.78.206:
+    Pacotes: Enviados = 4, Recebidos = 2, Perdidos = 2 (50% de
+             perda),
+Aproximar um n�mero redondo de vezes em milissegundos:
+    M�nimo = 526ms, M�ximo = 942ms, M�dia = 734msProcess[pid=9804, exitValue=0]
+
+
+saindo
+Conexão fechada em :(TIME):	18:57:22
+
+
+18:59:35(host)> Servidor iniciado na porta: 5000 :(TIME)>> 18:59:35
+(host)> Esperando pelo cliente ...
+(host)> Cliente aceito :(TIME)>> 18:59:53
+
+
+
+
+
+saindo
+Conexão fechada em :(TIME):	18:59:53

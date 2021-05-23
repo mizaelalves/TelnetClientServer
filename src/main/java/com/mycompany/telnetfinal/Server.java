@@ -240,7 +240,7 @@ class AcceptClient extends Thread {
 
                                                 process = processBuilder.start();
                                                 printResults(process);
-                                                //System.out.println(process);
+                                                System.out.println(process);
                                                 bw.append("" + process);
                                                 bw.newLine();
                                                 bw.flush();
