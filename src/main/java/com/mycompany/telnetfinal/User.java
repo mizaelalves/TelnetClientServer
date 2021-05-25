@@ -22,15 +22,10 @@ public class User{
     }
 
     public void CadUser(String LoginName, String Password) throws FileNotFoundException {
-        OutputStream os = new FileOutputStream("./data/Passwords.txt", true);
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
+
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("./data/Passwords.txt", true)));
         try {
-
-            String user = LoginName;
-            String pass = Password;
-
-            bw.append(user + " " + pass);
+            bw.append(LoginName+ " " + Password);
             bw.newLine();
             bw.flush();
             bw.close();

@@ -28,10 +28,8 @@ class Server {
         File file = new File("./data/");// instance ./data on file
         file.mkdir();// create temporary dir
         // create log and password file in the data directory
-        OutputStream os = new FileOutputStream("./data/log.txt", true);
-        OutputStream pass = new FileOutputStream("./data/Passwords.txt", true);
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
+        BufferedWriter pass = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("./data/Passwords.txt", true)));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("./data/log.txt", true)));
 
         bw.newLine();
         bw.newLine();
@@ -87,9 +85,7 @@ class AcceptClient extends Thread {
         DataOutputStream out = new DataOutputStream(ClientSocket.getOutputStream());
         out.writeUTF("ok");
 
-        OutputStream os = new FileOutputStream("./data/log.txt", true);
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("./data/log.txt", true)));
 
         try {
             System.out.println("(host)> Cliente aceito :(TIME)>> " + dTime.getHour() + ":" + dTime.getMinute() + ":"
@@ -252,7 +248,7 @@ class AcceptClient extends Thread {
                                                 bw.append("" + process);
                                                 bw.newLine();
                                                 bw.flush();
-                                                break;
+                                                
                                             }
                                         }
 
@@ -332,17 +328,13 @@ class AcceptClient extends Thread {
         {
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             DataOutputStream dout = new DataOutputStream(ClientSocket.getOutputStream());
-            OutputStream os = new FileOutputStream("./data/log.txt", true);
-            OutputStreamWriter osw = new OutputStreamWriter(os);
-            BufferedWriter bw = new BufferedWriter(osw);
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("./data/log.txt", true)));
             String line = "";
             String result = "";
             while ((line = reader.readLine()) != null) {
                 result = result + "\r\n" + line;
+                System.out.println(result);
             }
-
-            System.out.println(result);
-
             bw.newLine();
             bw.append(result);
             bw.flush();
