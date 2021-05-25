@@ -28,6 +28,7 @@ class Client {
 	
 
 	public void RunClient() throws IOException{
+		User add = new User();
 		System.out.println("Esperando comunicação com o servidor");
 		Socket soc = new Socket(end, port);	
 
@@ -46,8 +47,6 @@ class Client {
 				System.out.println("Conectado ao servidor :(TIME)>>" + dTime.getHour() + ":" + dTime.getMinute());
 
 				String Command = "";
-				String Password = "";
-				String LoginName = "";
 				String line = "";
 				String chat_r = "";
 				String chat_s = "";
@@ -99,15 +98,15 @@ class Client {
 									switch (line) {
 										case "0":
 											try {
-												LoginName = null;
-												Password = null;
+												add.setLoginName(null);
+												add.setPassword(null);
 												System.out.println("Cadastro:");
 												System.out.print(">>>Login Name :	");
-												LoginName = input.readLine();
-												out.writeUTF(LoginName);
+												add.setLoginName(input.readLine());
+												out.writeUTF(add.getLoginName());
 												System.out.print(">>>Password :	");
-												Password = input.readLine();
-												out.writeUTF(Password);
+												add.setPassword(input.readLine());
+												out.writeUTF(add.getPassword());
 												System.out.println("Usuário cadastrado!");
 												break;
 											} catch (Exception e) {
@@ -117,19 +116,19 @@ class Client {
 										case "1":
 											String login = "";
 											do {
-												LoginName = null;
-												Password = null;
+												add.setLoginName(null);
+												add.setPassword(null);
 												System.out.println("Bem-vindo ao cliente telnet");
 												System.out.println("Suas informações porfavor...");
 												// out.writeUTF("login_request");
 												System.out.print(">>>Login Name :	");
-												LoginName = input.readLine();
+												add.setLoginName(input.readLine());
 												System.out.print(">>>Password :	");
 												char[] passwordArray2 = console.readPassword();
-												Password = new String(passwordArray2);
+												add.setPassword(new String(passwordArray2));
 												// Password=input.readLine();
-												out.writeUTF(LoginName);
-												out.writeUTF(Password);
+												out.writeUTF(add.getLoginName());
+												out.writeUTF(add.getPassword());
 												String Permission = in.readUTF();
 												System.out.println(Permission);
 												if (Permission.equals("ALLOWED")) {

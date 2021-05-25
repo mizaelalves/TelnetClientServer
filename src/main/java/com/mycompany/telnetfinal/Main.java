@@ -9,6 +9,7 @@ public class Main {
 
         Server server = new Server();
         Client client = new Client();
+        
         while (true) {
             try {
                 System.out.println("*-*-*-*-*Telnet Client/Server*-*-*-*-*");
@@ -46,9 +47,11 @@ public class Main {
                     break;
                 }
             } catch (Exception e) {
+                //e.printStackTrace();
                 System.out.println("Endereço ou porta errada!");
                 System.out.println("Tente Novamente");
-                //break;
+
+                break;
             }
         }
     }

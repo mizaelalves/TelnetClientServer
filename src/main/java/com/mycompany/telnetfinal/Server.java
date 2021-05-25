@@ -9,9 +9,8 @@ import java.util.*;
 class Server {
     private Integer port;
 
-
     public Server() {
-       
+
     }
 
     public Integer getPort() {
@@ -22,22 +21,22 @@ class Server {
         this.port = port;
     }
 
-
-
     public void RunServer() throws IOException {
         // Server server = new Server(5555);
         LocalTime dTime = LocalTime.now();
-        ServerSocket server = new ServerSocket(this.getPort());
-
-        OutputStream os = new FileOutputStream("log.txt", true);
-        OutputStream pass = new FileOutputStream("Passwords.txt", true);
+        ServerSocket server = new ServerSocket(this.getPort());// open socket
+        File file = new File("./data/");// instance ./data on file
+        file.mkdir();// create temporary dir
+        // create log and password file in the data directory
+        OutputStream os = new FileOutputStream("./data/log.txt", true);
+        OutputStream pass = new FileOutputStream("./data/Passwords.txt", true);
         OutputStreamWriter osw = new OutputStreamWriter(os);
         BufferedWriter bw = new BufferedWriter(osw);
 
         bw.newLine();
         bw.newLine();
-        bw.append(dTime.getHour()+ ":" + dTime.getMinute() + ":" + dTime.getSecond());
-        
+        bw.append(dTime.getHour() + ":" + dTime.getMinute() + ":" + dTime.getSecond());
+        bw.newLine();
         System.out.println("(host)> Servidor iniciado na porta: " + this.getPort() + " :(TIME)>> " + dTime.getHour()
                 + ":" + dTime.getMinute() + ":" + dTime.getSecond());
         bw.append("(host)> Servidor iniciado na porta: " + this.getPort() + " :(TIME)>> " + dTime.getHour() + ":"
@@ -64,37 +63,40 @@ class Server {
         }
     }
 }
-// constructor with port
+// class accept client
 
 class AcceptClient extends Thread {
     Socket ClientSocket;
     // --------------------------------------------------------------------------------------------------------
     private String Command = "";
-    private String Password = "";
-    private String LoginName = "";
+    //private String Password = "";
+    //private String LoginName = "";
     private String line = "";
     private String chat_r = "";
     private String chat_s = "";
     private String Permission = "Not_Allowed";
     private String login = "";
     private String LoginInfo = new String("");
-
+    User add = new User();
     private LocalTime dTime = LocalTime.now();
 
-    AcceptClient(Socket Soc) throws IOException {
+    public AcceptClient(Socket Soc) throws IOException {
 
         ClientSocket = Soc;
+        
         DataOutputStream out = new DataOutputStream(ClientSocket.getOutputStream());
         out.writeUTF("ok");
 
-        OutputStream os = new FileOutputStream("log.txt", true);
+        OutputStream os = new FileOutputStream("./data/log.txt", true);
         OutputStreamWriter osw = new OutputStreamWriter(os);
         BufferedWriter bw = new BufferedWriter(osw);
 
         try {
-            System.out.println("(host)> Cliente aceito :(TIME)>> "+dTime.getHour()+":"+dTime.getMinute()+":"+dTime.getSecond());
+            System.out.println("(host)> Cliente aceito :(TIME)>> " + dTime.getHour() + ":" + dTime.getMinute() + ":"
+                    + dTime.getSecond());
             bw.newLine();
-            bw.append("(host)> Cliente aceito :(TIME)>> "+dTime.getHour()+":"+dTime.getMinute()+":"+dTime.getSecond());
+            bw.append("(host)> Cliente aceito :(TIME)>> " + dTime.getHour() + ":" + dTime.getMinute() + ":"
+                    + dTime.getSecond());
             bw.newLine();
             bw.flush();
             start();
@@ -103,7 +105,6 @@ class AcceptClient extends Thread {
             e.printStackTrace();
         }
     }
-
     @Override
     public void run() {
         // --------------------------------------------------------------------------------------------------------
@@ -113,12 +114,13 @@ class AcceptClient extends Thread {
         OutputStreamWriter osw = null;
         BufferedWriter bw = null;
         BufferedReader input = null;
+        User add = new User();
         // --------------------------------------------------------------------------------------------------------
         try {
             LocalTime dTime = LocalTime.now();
             // --------------------------------------------------------------------------------------------------------
             in = new DataInputStream(new BufferedInputStream(ClientSocket.getInputStream()));
-            os = new FileOutputStream("log.txt", true);
+            os = new FileOutputStream("./data/log.txt", true);
             osw = new OutputStreamWriter(os);
             bw = new BufferedWriter(osw);
             out = new DataOutputStream(ClientSocket.getOutputStream());
@@ -168,29 +170,35 @@ class AcceptClient extends Thread {
                         while (login.equals("0")) {
                             System.out.println("Iniciando cadastro");
                             bw.append("Iniciando cadastro");
+                            bw.newLine();
                             System.out.println("Esperando login");
-                            LoginName = in.readUTF();
+                            add.setLoginName(in.readUTF());
                             System.out.println("Esperando senha");
                             bw.append("Esperando senha");
-                            Password = in.readUTF();
-                            cadUser(LoginName, Password);
-                            bw.append("Usuario: "+ LoginName);
-                            bw.append("Client: "+ Password);
+                            bw.newLine();
+                            add.setPassword(in.readUTF());
+
+                            add.CadUser(add.getLoginName(), add.getPassword());
+
+                            bw.append("Usuario: " + add.getLoginName());
+                            bw.newLine();
+                            bw.append("Client: " + add.getPassword());
+                            bw.newLine();
                             bw.flush();
                             break;
                         }
                         // --------------------------------------------------------------------------------------------------------
                         while (login.equals("1")) {
 
-                            LoginName = in.readUTF();
-                            Password = in.readUTF();
-                            System.out.println(LoginName);
-                            BufferedReader brFin = new BufferedReader(new FileReader("Passwords.txt"));
+                            add.setLoginName(in.readUTF());
+                            add.setPassword(in.readUTF());
+                            System.out.println(add.getLoginName());
+                            BufferedReader brFin = new BufferedReader(new FileReader("./data/Passwords.txt"));
 
                             while ((LoginInfo = (brFin).readLine()) != null) {
 
                                 StringTokenizer st = new StringTokenizer(LoginInfo);
-                                if (LoginName.equals(st.nextToken()) && Password.equals(st.nextToken())) {
+                                if (add.getLoginName().equals(st.nextToken()) && add.getPassword().equals(st.nextToken())) {
                                     System.out.println("iniciado");
                                     bw.append("iniciado");
                                     // out.writeUTF("ALLOWED");
@@ -205,17 +213,17 @@ class AcceptClient extends Thread {
                             }
                             // --------------------------------------------------------------------------------------------------------
                             if (Permission == "ALLOWED") {
-                                System.out.println("(host)> conectado a partir de um host remoto :" + LoginName);
-                                bw.append("(host)> conectado a partir de um host remoto :" + LoginName);
-                               
+                                System.out.println("(host)> conectado a partir de um host remoto :" + add.getLoginName());
+                                bw.append("(host)> conectado a partir de um host remoto :" + add.getLoginName());
+
                                 bw.flush();
                                 while (true) {
                                     try {
                                         Process process = null;
                                         Command = in.readUTF();
                                         if (Command.equals("quit")) {
-                                            System.out.println(LoginName + " desconectado!");
-                                            bw.append(LoginName + " desconectado!");
+                                            System.out.println(add.getLoginName() + " desconectado!");
+                                            bw.append(add.getLoginName() + " desconectado!");
                                             bw.newLine();
                                             bw.flush();
                                             login = "0";
@@ -292,7 +300,7 @@ class AcceptClient extends Thread {
             // try {
             input.close();
             out.close();
-
+            ClientSocket.close();
             in.close();
             System.out.println("Conexão fechada em :(TIME):	" + dTime.getHour() + ":" + dTime.getMinute() + ":"
                     + dTime.getSecond());
@@ -302,35 +310,29 @@ class AcceptClient extends Thread {
             bw.flush();
         } catch (IOException i) {
             System.out.println(i);
-
+            ;
         }
 
     }
 
     // --------------------------------------------------------------------------------------------------------
-    public void cadUser(String username, String password) throws IOException {
-        OutputStream os = new FileOutputStream("Passwords.txt", true);
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
-        try {
-
-            String user = username;
-            String pass = password;
-
-            bw.append(user + " " + pass);
-            bw.newLine();
-            bw.flush();
-
-        } catch (IOException i) {
-            bw.close();
-        }
-    }
-
+    /*
+     * public void cadUser(String username, String password) throws IOException {
+     * OutputStream os = new FileOutputStream("Passwords.txt", true);
+     * OutputStreamWriter osw = new OutputStreamWriter(os); BufferedWriter bw = new
+     * BufferedWriter(osw); try {
+     * 
+     * String user = username; String pass = password;
+     * 
+     * bw.append(user + " " + pass); bw.newLine(); bw.flush();
+     * 
+     * } catch (IOException i) { bw.close(); } }
+     */
     public void printResults(Process process) throws IOException, FileNotFoundException {
         {
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             DataOutputStream dout = new DataOutputStream(ClientSocket.getOutputStream());
-            OutputStream os = new FileOutputStream("log.txt", true);
+            OutputStream os = new FileOutputStream("./data/log.txt", true);
             OutputStreamWriter osw = new OutputStreamWriter(os);
             BufferedWriter bw = new BufferedWriter(osw);
             String line = "";
