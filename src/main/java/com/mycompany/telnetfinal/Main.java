@@ -33,6 +33,7 @@ public class Main {
                     System.out.print(">>>");
                     client.setPort(sc.nextInt());
                     client.RunClient();
+                    
                     break;
                 } else if(op == 3){
 

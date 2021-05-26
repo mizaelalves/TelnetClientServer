@@ -26,7 +26,7 @@ class Server {
         LocalTime dTime = LocalTime.now();
         ServerSocket server = new ServerSocket(this.getPort());// open socket
         File file = new File("./data/");// instance ./data on file
-        file.mkdir();// create temporary dir
+        file.mkdir();// create dir
         // create log and password file in the data directory
         BufferedWriter pass = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("./data/Passwords.txt", true)));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("./data/log.txt", true)));
@@ -97,6 +97,7 @@ class AcceptClient extends Thread {
             bw.flush();
             start();
             bw.close();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,11 +116,11 @@ class AcceptClient extends Thread {
         try {
             LocalTime dTime = LocalTime.now();
             // --------------------------------------------------------------------------------------------------------
-            in = new DataInputStream(new BufferedInputStream(ClientSocket.getInputStream()));
+            in = new DataInputStream(new BufferedInputStream(ClientSocket.getInputStream()));//received data
+            out = new DataOutputStream(ClientSocket.getOutputStream());//  send data
             os = new FileOutputStream("./data/log.txt", true);
             osw = new OutputStreamWriter(os);
             bw = new BufferedWriter(osw);
-            out = new DataOutputStream(ClientSocket.getOutputStream());
             input = new BufferedReader(new InputStreamReader(System.in));
             // --------------------------------------------------------------------------------------------------------
             // client
@@ -134,7 +135,7 @@ class AcceptClient extends Thread {
                             bw.append("(host)> Chatbox aberto");
                             bw.flush();
                             while (true) {
-
+                            
                                 chat_r = in.readUTF();
                                 System.out.println(">>>cliente:	" + chat_r);
                                 bw.append(">>>cliente:	" + chat_r);
@@ -203,14 +204,14 @@ class AcceptClient extends Thread {
                                     bw.append(Permission + "\n");
                                     out.writeUTF(Permission);
                                     bw.flush();
-                                    // break OUTER;
+                                    
                                 }
 
                             }
                             // --------------------------------------------------------------------------------------------------------
                             if (Permission == "ALLOWED") {
-                                System.out.println("(host)> conectado a partir de um host remoto :" + add.getLoginName());
-                                bw.append("(host)> conectado a partir de um host remoto :" + add.getLoginName());
+                                System.out.println("(host)> conectado a partir de um host remoto : " + add.getLoginName());
+                                bw.append("(host)> conectado a partir de um host remoto : " + add.getLoginName());
 
                                 bw.flush();
                                 while (true) {
@@ -254,7 +255,7 @@ class AcceptClient extends Thread {
 
                                         else
 
-                                            out.writeUTF("Comando inválido digite help");
+                                        out.writeUTF("Comando inválido digite help");
                                         bw.append("Comando inválido digite help");
                                         bw.newLine();
                                         Command = Command + " comando recebido!";
@@ -271,7 +272,7 @@ class AcceptClient extends Thread {
                                     }
                                 }
                             } else
-                                out.writeUTF(Permission);
+                            out.writeUTF(Permission);
                             login = in.readUTF();
                             brFin.close();
                         }
@@ -298,10 +299,12 @@ class AcceptClient extends Thread {
             out.close();
             ClientSocket.close();
             in.close();
+            interrupt();
             System.out.println("Conexão fechada em :(TIME):	" + dTime.getHour() + ":" + dTime.getMinute() + ":"
                     + dTime.getSecond());
             bw.append("Conexão fechada em :(TIME):	" + dTime.getHour() + ":" + dTime.getMinute() + ":"
                     + dTime.getSecond());
+
             bw.newLine();
             bw.flush();
         } catch (IOException i) {
@@ -312,18 +315,7 @@ class AcceptClient extends Thread {
     }
 
     // --------------------------------------------------------------------------------------------------------
-    /*
-     * public void cadUser(String username, String password) throws IOException {
-     * OutputStream os = new FileOutputStream("Passwords.txt", true);
-     * OutputStreamWriter osw = new OutputStreamWriter(os); BufferedWriter bw = new
-     * BufferedWriter(osw); try {
-     * 
-     * String user = username; String pass = password;
-     * 
-     * bw.append(user + " " + pass); bw.newLine(); bw.flush();
-     * 
-     * } catch (IOException i) { bw.close(); } }
-     */
+
     public void printResults(Process process) throws IOException, FileNotFoundException {
         {
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));

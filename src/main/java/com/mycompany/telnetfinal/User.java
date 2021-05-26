@@ -32,6 +32,5 @@ public class User{
         } catch (IOException i) {
             i.printStackTrace();
         }
-        
     }
 }
